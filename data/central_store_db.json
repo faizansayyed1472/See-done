@@ -1,0 +1,805 @@
+{
+  "version": "2.0.0",
+  "serverId": "faizan-inamdar",
+  "serverAdmin": "Faizan Inamdar",
+  "masterAdminUsername": "faizan",
+  "lastUpdated": "2026-09-22T10:57:48.719Z",
+  "cloudSyncMode": "firebase_firestore",
+  "firebaseConfig": {
+    "projectId": "flowing-tomorrow-zmn89",
+    "apiKey": "AIzaSyBiPojXc6FIB3oe3mLGb83AH6ILwKZ_p2A",
+    "firestoreDatabaseId": "ai-studio-zenayabkiranacal-689ee38e-6bbd-4dbf-8527-8d9158c242ad",
+    "autoSyncToCloud": true,
+    "connected": true
+  },
+  "products": [
+    {
+      "id": "sp-1",
+      "name": "Haldi Powder (Turmeric)",
+      "hindiName": "हल्दी पाउडर",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 260,
+      "costPrice": 195,
+      "stock": 45,
+      "popular": true,
+      "barcode": "8901058852011"
+    },
+    {
+      "id": "sp-2",
+      "name": "Jeera (Cumin Seeds)",
+      "hindiName": "साबुत जीरा",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 380,
+      "costPrice": 290,
+      "stock": 28,
+      "popular": true,
+      "barcode": "8901058852028"
+    },
+    {
+      "id": "sp-3",
+      "name": "Dhaniya Powder (Coriander)",
+      "hindiName": "धनिया पाउडर",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 220,
+      "costPrice": 160,
+      "stock": 35,
+      "popular": true,
+      "barcode": "8901058852035"
+    },
+    {
+      "id": "sp-4",
+      "name": "Lal Mirch Powder (Red Chilli)",
+      "hindiName": "लाल मिर्च पाउडर",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 340,
+      "costPrice": 250,
+      "stock": 18,
+      "popular": true,
+      "barcode": "8901058852042"
+    },
+    {
+      "id": "sp-5",
+      "name": "Garam Masala Special",
+      "hindiName": "शाही गरम मसाला",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 680,
+      "costPrice": 480,
+      "stock": 6,
+      "popular": true,
+      "barcode": "8901058852059",
+      "minStockAlert": 10
+    },
+    {
+      "id": "sp-6",
+      "name": "Chhoti Elaichi (Green Cardamom)",
+      "hindiName": "छोटी इलायची",
+      "category": "spices",
+      "unit": "g",
+      "rate": 3.2,
+      "costPrice": 2.4,
+      "stock": 250,
+      "popular": true,
+      "barcode": "8901058852066"
+    },
+    {
+      "id": "sp-7",
+      "name": "Sabut Kali Mirch (Black Pepper)",
+      "hindiName": "काली मिर्च",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 850,
+      "costPrice": 650,
+      "stock": 14,
+      "popular": true,
+      "barcode": "8901058852073"
+    },
+    {
+      "id": "sp-8",
+      "name": "Laung (Cloves)",
+      "hindiName": "साबुत लौंग",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 1150,
+      "costPrice": 880,
+      "stock": 7,
+      "popular": false,
+      "barcode": "8901058852080",
+      "minStockAlert": 10
+    },
+    {
+      "id": "sp-9",
+      "name": "Dalchini (Cinnamon Bark)",
+      "hindiName": "दालचीनी",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 460,
+      "costPrice": 340,
+      "stock": 12,
+      "popular": false,
+      "barcode": "8901058852097"
+    },
+    {
+      "id": "sp-10",
+      "name": "Badi Elaichi (Black Cardamom)",
+      "hindiName": "बड़ी इलायची",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 1750,
+      "costPrice": 1350,
+      "stock": 2,
+      "popular": false,
+      "barcode": "8901058852103",
+      "minStockAlert": 5
+    },
+    {
+      "id": "sp-11",
+      "name": "Rai / Sarson (Mustard Seeds)",
+      "hindiName": "राई / सरसों दाना",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 110,
+      "costPrice": 82,
+      "stock": 60,
+      "popular": true,
+      "barcode": "8901058852110"
+    },
+    {
+      "id": "sp-12",
+      "name": "Saunf (Fennel Seeds)",
+      "hindiName": "सौंफ मोटी",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 240,
+      "costPrice": 180,
+      "stock": 22,
+      "popular": false,
+      "barcode": "8901058852127"
+    },
+    {
+      "id": "sp-13",
+      "name": "Ajwain (Carom Seeds)",
+      "hindiName": "अजवाइन",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 290,
+      "costPrice": 215,
+      "stock": 16,
+      "popular": false,
+      "barcode": "8901058852134"
+    },
+    {
+      "id": "sp-14",
+      "name": "Kasuri Methi",
+      "hindiName": "कस्तूरी मेथी",
+      "category": "spices",
+      "unit": "packet",
+      "rate": 45,
+      "costPrice": 32,
+      "stock": 25,
+      "popular": false,
+      "barcode": "8901058852141"
+    },
+    {
+      "id": "sp-15",
+      "name": "Asafoetida (Hing Vandevi 50g)",
+      "hindiName": "हींग (50 ग्राम)",
+      "category": "spices",
+      "unit": "packet",
+      "rate": 115,
+      "costPrice": 88,
+      "stock": 4,
+      "popular": true,
+      "barcode": "8901058852158",
+      "minStockAlert": 8
+    },
+    {
+      "id": "sp-16",
+      "name": "Biryani Masala (Pack 100g)",
+      "hindiName": "बिरयानी मसाला",
+      "category": "spices",
+      "unit": "packet",
+      "rate": 75,
+      "costPrice": 54,
+      "stock": 30,
+      "popular": true,
+      "barcode": "8901058852165"
+    },
+    {
+      "id": "sp-17",
+      "name": "Kashmiri Mirch (Deggi)",
+      "hindiName": "कश्मीरी लाल मिर्च",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 480,
+      "costPrice": 370,
+      "stock": 15,
+      "popular": true,
+      "barcode": "8901058852172"
+    },
+    {
+      "id": "sp-18",
+      "name": "Amchur Powder (Dry Mango)",
+      "hindiName": "आमचूर पाउडर",
+      "category": "spices",
+      "unit": "kg",
+      "rate": 320,
+      "costPrice": 240,
+      "stock": 9,
+      "popular": false,
+      "barcode": "8901058852189"
+    },
+    {
+      "id": "dal-1",
+      "name": "Toor Dal (Arhar Dal)",
+      "hindiName": "अरहर / तूर दाल",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 165,
+      "costPrice": 142,
+      "stock": 85,
+      "popular": true,
+      "barcode": "8902058852018"
+    },
+    {
+      "id": "dal-2",
+      "name": "Moong Dal Dhuli (Yellow)",
+      "hindiName": "मूंग दाल धुली",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 130,
+      "costPrice": 108,
+      "stock": 40,
+      "popular": true,
+      "barcode": "8902058852025"
+    },
+    {
+      "id": "dal-3",
+      "name": "Chana Dal",
+      "hindiName": "चना दाल",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 92,
+      "costPrice": 76,
+      "stock": 55,
+      "popular": true,
+      "barcode": "8902058852032"
+    },
+    {
+      "id": "dal-4",
+      "name": "Urad Dal Dhuli (White)",
+      "hindiName": "उड़द दाल धुली",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 145,
+      "costPrice": 122,
+      "stock": 18,
+      "popular": false,
+      "barcode": "8902058852049"
+    },
+    {
+      "id": "dal-5",
+      "name": "Kabuli Chana (White Chickpeas)",
+      "hindiName": "काबुली चना",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 135,
+      "costPrice": 110,
+      "stock": 32,
+      "popular": true,
+      "barcode": "8902058852056"
+    },
+    {
+      "id": "dal-6",
+      "name": "Kala Chana (Desi Gram)",
+      "hindiName": "काला चना",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 85,
+      "costPrice": 68,
+      "stock": 24,
+      "popular": false,
+      "barcode": "8902058852063"
+    },
+    {
+      "id": "dal-7",
+      "name": "Rajma Chitra (Kidney Beans)",
+      "hindiName": "चित्रा राजमा",
+      "category": "dal_pulses",
+      "unit": "kg",
+      "rate": 155,
+      "costPrice": 128,
+      "stock": 20,
+      "popular": true,
+      "barcode": "8902058852070"
+    },
+    {
+      "id": "gr-1",
+      "name": "Chakki Fresh Sharbati Atta",
+      "hindiName": "शरबती गेहूं आटा",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 44,
+      "costPrice": 36,
+      "stock": 150,
+      "popular": true,
+      "barcode": "8903058852015"
+    },
+    {
+      "id": "gr-2",
+      "name": "Basmati Rice Daily Feast",
+      "hindiName": "बासमती चावल",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 95,
+      "costPrice": 105,
+      "stock": 90,
+      "popular": true,
+      "barcode": "8903058852022",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "gr-3",
+      "name": "Basmati Premium Royal 1121",
+      "hindiName": "रॉयल 1121 बासमती",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 135,
+      "costPrice": 30,
+      "stock": 5,
+      "popular": false,
+      "barcode": "8903058852039",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "gr-4",
+      "name": "Maida (Refined Flour)",
+      "hindiName": "मैदा",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 38,
+      "costPrice": 33,
+      "stock": 40,
+      "popular": false,
+      "barcode": "8903058852046",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "gr-5",
+      "name": "Sooji / Rava (Semolina)",
+      "hindiName": "सूजी / रवा",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 42,
+      "costPrice": 80,
+      "stock": 35,
+      "popular": false,
+      "barcode": "8903058852053",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "oil-1",
+      "name": "Sarson Ka Kachi Ghani Tel",
+      "hindiName": "कच्ची घानी सरसों तेल",
+      "category": "oil_ghee",
+      "unit": "litre",
+      "rate": 158,
+      "costPrice": 138,
+      "stock": 65,
+      "popular": true,
+      "barcode": "8904058852012",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "oil-2",
+      "name": "Refined Sunflower Oil 1L",
+      "hindiName": "रिफाइंड तेल 1L",
+      "category": "oil_ghee",
+      "unit": "packet",
+      "rate": 138,
+      "costPrice": 122,
+      "stock": 45,
+      "popular": true,
+      "barcode": "8904058852029",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "oil-3",
+      "name": "Shuddh Desi Cow Ghee",
+      "hindiName": "शुद्ध देशी गाय घी",
+      "category": "oil_ghee",
+      "unit": "litre",
+      "rate": 640,
+      "costPrice": 520,
+      "stock": 8,
+      "popular": true,
+      "barcode": "8904058852036",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "df-1",
+      "name": "Kaju W320 (Cashews)",
+      "hindiName": "काजू साबुत W320",
+      "category": "dry_fruits",
+      "unit": "kg",
+      "rate": 840,
+      "costPrice": 680,
+      "stock": 3,
+      "popular": true,
+      "barcode": "8905058852019",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "df-2",
+      "name": "Badam Giri (California Almonds)",
+      "hindiName": "कैलिफोर्निया बादाम",
+      "category": "dry_fruits",
+      "unit": "kg",
+      "rate": 780,
+      "costPrice": 630,
+      "stock": 12,
+      "popular": true,
+      "barcode": "8905058852026",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "df-3",
+      "name": "Kishmish (Green Raisins)",
+      "hindiName": "हरी किशमिश",
+      "category": "dry_fruits",
+      "unit": "kg",
+      "rate": 340,
+      "costPrice": 260,
+      "stock": 15,
+      "popular": false,
+      "barcode": "8905058852033",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "df-4",
+      "name": "Magaj / Tarbuj Beej (Melon seeds)",
+      "hindiName": "मगज़ बीज",
+      "category": "dry_fruits",
+      "unit": "kg",
+      "rate": 650,
+      "costPrice": 750,
+      "stock": 7,
+      "popular": false,
+      "barcode": "8905058852040",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "dn-1",
+      "name": "Tata Salt (1kg Pouch)",
+      "hindiName": "टाटा नमक 1kg",
+      "category": "daily_needs",
+      "unit": "packet",
+      "rate": 28,
+      "costPrice": 24,
+      "stock": 90,
+      "popular": true,
+      "barcode": "8906058852016"
+    },
+    {
+      "id": "dn-2",
+      "name": "Sugar / Cheeni (1kg)",
+      "hindiName": "सफेद चीनी",
+      "category": "daily_needs",
+      "unit": "kg",
+      "rate": 45,
+      "costPrice": 39,
+      "stock": 120,
+      "popular": true,
+      "barcode": "8906058852023"
+    },
+    {
+      "id": "dn-3",
+      "name": "Red Label Tea (250g)",
+      "hindiName": "चाय पत्ती 250g",
+      "category": "daily_needs",
+      "unit": "packet",
+      "rate": 140,
+      "costPrice": 120,
+      "stock": 35,
+      "popular": true,
+      "barcode": "8906058852030"
+    },
+    {
+      "id": "gr-6",
+      "name": "Poha (Beaten Rice)",
+      "hindiName": "पोहा मोटा",
+      "category": "grains_flour",
+      "unit": "kg",
+      "rate": 55,
+      "stock": 50,
+      "popular": true,
+      "barcode": "8903058852060",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "de-1",
+      "name": "Sugar / Cheeni M30",
+      "hindiName": "सफेद चीनी",
+      "category": "daily_needs",
+      "unit": "kg",
+      "rate": 44,
+      "stock": 120,
+      "popular": true,
+      "barcode": "8906058852016",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "de-2",
+      "name": "Tata Salt Iodized 1kg",
+      "hindiName": "टाटा नमक 1kg",
+      "category": "daily_needs",
+      "unit": "packet",
+      "rate": 28,
+      "stock": 80,
+      "popular": true,
+      "barcode": "8901030382341",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "de-3",
+      "name": "Saindhav Sendha Namak (Rock Salt)",
+      "hindiName": "सेंधा नमक पिसा",
+      "category": "daily_needs",
+      "unit": "kg",
+      "rate": 45,
+      "stock": 22,
+      "popular": false,
+      "barcode": "8906058852030",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "de-4",
+      "name": "Tea Gold Leaf Premium",
+      "hindiName": "प्रीमियम चाय पत्ती",
+      "category": "daily_needs",
+      "unit": "kg",
+      "rate": 460,
+      "stock": 25,
+      "popular": true,
+      "barcode": "8906058852047",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    },
+    {
+      "id": "de-5",
+      "name": "Jaggery / Gud Desi Bheli",
+      "hindiName": "देसी गुड़ भेली",
+      "category": "daily_needs",
+      "unit": "kg",
+      "rate": 58,
+      "stock": 35,
+      "popular": false,
+      "barcode": "8906058852054",
+      "updatedAt": "2026-09-22T10:57:48.719Z"
+    }
+  ],
+  "transactions": [],
+  "customers": [],
+  "staff": [
+    {
+      "id": "faizan-inamdar",
+      "serverId": "faizan-inamdar",
+      "name": "Faizan Inamdar (admin)",
+      "username": "faizan",
+      "role": "owner",
+      "pin": "nayab@q6",
+      "phone": "9876543210",
+      "active": true,
+      "assignedOutletIds": [
+        "store-1",
+        "store-2"
+      ],
+      "defaultOutletId": "store-1",
+      "createdAt": "2026-09-21T20:15:03.654Z",
+      "permissions": {
+        "canEditProducts": true,
+        "canViewReports": true,
+        "canManageUdhaar": true,
+        "canVoidBills": true,
+        "canAccessMasterAdmin": true
+      }
+    },
+    {
+      "id": "staff-1",
+      "name": "Abdullah",
+      "username": "abdullah",
+      "role": "cashier",
+      "pin": "0000",
+      "phone": "9876500001",
+      "active": true,
+      "assignedOutletIds": [
+        "store-1"
+      ],
+      "defaultOutletId": "store-1",
+      "createdAt": "2026-09-21T20:15:03.654Z",
+      "permissions": {
+        "canEditProducts": false,
+        "canViewReports": false,
+        "canManageUdhaar": true,
+        "canVoidBills": false,
+        "canAccessMasterAdmin": false
+      }
+    },
+    {
+      "id": "staff-2",
+      "name": "Ayan",
+      "username": "ayan",
+      "role": "cashier",
+      "pin": "0000",
+      "phone": "9876500002",
+      "active": true,
+      "assignedOutletIds": [
+        "store-2"
+      ],
+      "defaultOutletId": "store-2",
+      "createdAt": "2026-09-21T20:15:03.654Z",
+      "permissions": {
+        "canEditProducts": false,
+        "canViewReports": false,
+        "canManageUdhaar": true,
+        "canVoidBills": false,
+        "canAccessMasterAdmin": false
+      }
+    }
+  ],
+  "settings": {
+    "shopName": "sy Nayab",
+    "tagline": "Authentic Indian Spices & Daily Groceries",
+    "phone": "9876543210",
+    "upiId": "nayabmasale@upi",
+    "upiName": "sy Nayab",
+    "address": "Main Bazaar, Outlet 1",
+    "defaultTaxRate": 0,
+    "lowStockThreshold": 10,
+    "staffAccounts": [
+      {
+        "id": "staff-owner",
+        "name": "Faizan Inamdar (admin)",
+        "username": "faizan",
+        "role": "owner",
+        "pin": "nayab@q6",
+        "phone": "9876543210",
+        "active": true,
+        "assignedOutletIds": [
+          "store-1",
+          "store-2"
+        ],
+        "defaultOutletId": "store-1",
+        "createdAt": "2026-09-21T20:15:03.654Z",
+        "permissions": {
+          "canEditProducts": true,
+          "canViewReports": true,
+          "canManageUdhaar": true,
+          "canVoidBills": true,
+          "canAccessMasterAdmin": true
+        }
+      },
+      {
+        "id": "staff-1",
+        "name": "Abdullah",
+        "username": "abdullah",
+        "role": "cashier",
+        "pin": "0000",
+        "phone": "9876500001",
+        "active": true,
+        "assignedOutletIds": [
+          "store-1"
+        ],
+        "defaultOutletId": "store-1",
+        "createdAt": "2026-09-21T20:15:03.654Z",
+        "permissions": {
+          "canEditProducts": false,
+          "canViewReports": false,
+          "canManageUdhaar": true,
+          "canVoidBills": false,
+          "canAccessMasterAdmin": false
+        }
+      },
+      {
+        "id": "staff-2",
+        "name": "Ayan",
+        "username": "ayan",
+        "role": "cashier",
+        "pin": "0000",
+        "phone": "9876500002",
+        "active": true,
+        "assignedOutletIds": [
+          "store-2"
+        ],
+        "defaultOutletId": "store-2",
+        "createdAt": "2026-09-21T20:15:03.654Z",
+        "permissions": {
+          "canEditProducts": false,
+          "canViewReports": false,
+          "canManageUdhaar": true,
+          "canVoidBills": false,
+          "canAccessMasterAdmin": false
+        }
+      }
+    ],
+    "activeStaffId": "staff-owner",
+    "stores": [
+      {
+        "id": "store-1",
+        "shopName": "sy Nayab",
+        "shortcutName": "SY",
+        "tagline": "Authentic Indian Spices & Daily Groceries",
+        "phone": "9876543210",
+        "upiId": "nayabmasale@upi",
+        "upiName": "sy Nayab",
+        "address": "Main Bazaar, Outlet 1",
+        "defaultTaxRate": 0,
+        "isDefault": true,
+        "isPrimary": true,
+        "createdAt": "2026-09-21T20:15:03.654Z"
+      },
+      {
+        "id": "store-2",
+        "shopName": "kp Nayab",
+        "shortcutName": "KP",
+        "tagline": "Authentic Indian Spices & Daily Groceries",
+        "phone": "9876543210",
+        "upiId": "nayabmasale@upi",
+        "upiName": "kp Nayab",
+        "address": "Branch 2, Outlet 2",
+        "defaultTaxRate": 0,
+        "isDefault": false,
+        "createdAt": "2026-09-21T20:15:03.654Z"
+      }
+    ],
+    "activeStoreId": "store-1",
+    "printerConfig": {
+      "printerType": "browser",
+      "paperWidth": "58mm",
+      "autoPrintOnSale": false,
+      "connected": false,
+      "printQrCodeOnSlip": true
+    }
+  },
+  "auditLogs": [
+    {
+      "id": "log-1790021703655",
+      "timestamp": "2026-09-21T20:15:03.655Z",
+      "action": "DATABASE_INITIALIZED",
+      "entity": "database",
+      "details": "Central Server Database initialized with initial catalog & master admin.",
+      "performedBy": "System Bootstrap"
+    },
+    {
+      "id": "log-1790061410936-7b7j",
+      "timestamp": "2026-09-22T07:16:50.936Z",
+      "action": "OUTLET_SYNCED",
+      "entity": "database",
+      "details": "Synchronized data separately for outlet: kp Nayab (store-2)",
+      "performedBy": "Test Runner"
+    },
+    {
+      "id": "log-1790061418983-g0mh",
+      "timestamp": "2026-09-22T07:16:58.983Z",
+      "action": "OUTLET_SYNCED",
+      "entity": "database",
+      "details": "Synchronized data separately for outlet: kp Nayab (store-2)",
+      "performedBy": "Master Admin (Outlet Sync: kp Nayab)"
+    },
+    {
+      "id": "log-1790061472223-5uck",
+      "timestamp": "2026-09-22T07:17:52.223Z",
+      "action": "OUTLET_SYNCED",
+      "entity": "database",
+      "details": "Synchronized data separately for outlet: sy Nayab (store-1)",
+      "performedBy": "Outlet Sync Test (sy Nayab)"
+    }
+  ],
+  "outletSyncTimestamps": {
+    "store-1": "2026-09-22T07:17:52.222Z",
+    "store-2": "2026-09-22T07:16:58.983Z"
+  }
+}

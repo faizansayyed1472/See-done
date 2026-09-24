@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      // Filter benign Vite HMR websocket reconnection notices in container environment
+      (function () {
+        function isBenign(val) {
+          if (!val) return false;
+          var str = typeof val === 'string' ? val : String((val && (val.message || val.reason)) || val);
+          return str.indexOf('[vite]') !== -1 || str.indexOf('websocket') !== -1 || str.indexOf('WebSocket') !== -1;
+        }
+
+        function filterArgs(args) {
+          for (var i = 0; i < args.length; i++) {
+            if (isBenign(args[i])) return true;
+          }
+          return false;
+        }
+
+        function wrapConsole(con) {
+          if (!con) return con;
+          var origErr = con.error;
+          con.error = function (...args) {
+            if (filterArgs(args)) return;
+            if (origErr) return origErr.apply(this, args);
+          };
+          var origWarn = con.warn;
+          con.warn = function (...args) {
+            if (filterArgs(args)) return;
+            if (origWarn) return origWarn.apply(this, args);
+          };
+          return con;
+        }
+
+        var _actualConsole = wrapConsole(window.console);
+        try {
+          Object.defineProperty(window, 'console', {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+              return _actualConsole;
+            },
+            set: function (newVal) {
+              _actualConsole = wrapConsole(newVal);
+            },
+          });
+        } catch (e) {}
+
+        var _actualOnError = window.onerror;
+        try {
+          Object.defineProperty(window, 'onerror', {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+              return _actualOnError;
+            },
+            set: function (fn) {
+              _actualOnError = function (message, source, lineno, colno, error) {
+                if (isBenign(message) || (error && isBenign(error.message))) {
+                  return true;
+                }
+                if (fn) return fn.apply(this, arguments);
+              };
+            },
+          });
+        } catch (e) {}
+
+        var _actualOnUnhandled = window.onunhandledrejection;
+        try {
+          Object.defineProperty(window, 'onunhandledrejection', {
+            configurable: true,
+            enumerable: true,
+            get: function () {
+              return _actualOnUnhandled;
+            },
+            set: function (fn) {
+              _actualOnUnhandled = function (event) {
+                var reason = event && (event.reason?.message || event.reason);
+                if (isBenign(reason)) {
+                  if (event && event.preventDefault) event.preventDefault();
+                  return true;
+                }
+                if (fn) return fn.apply(this, arguments);
+              };
+            },
+          });
+        } catch (e) {}
+
+        window.addEventListener('error', function (e) {
+          if (isBenign(e.message) || (e.error && isBenign(e.error.message))) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function (e) {
+          var reason = e && (e.reason?.message || e.reason);
+          if (isBenign(reason)) {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+          }
+        }, true);
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ze Nayab kirana calculator</title>
+    <meta name="description" content="Smart business calculator with integrated Kirana and spice store POS inventory, web item search, UPI QR billing, and Udhaar ledger." />
+    <meta property="og:title" content="Ze Nayab kirana calculator" />
+    <meta property="og:description" content="Smart business calculator with integrated Kirana and spice store POS inventory, web item search, UPI QR billing, and Udhaar ledger." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="application-name" content="NayabPOS" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="NayabPOS" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/pwa-512x512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-slate-950 text-slate-100 font-['Plus_Jakarta_Sans',sans-serif] overflow-x-hidden antialiased select-none">
+    <div id="root" class="min-h-screen w-screen"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

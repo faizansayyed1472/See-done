@@ -1,0 +1,187 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidProduct(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 200
+        && (!('hindiName' in data) || data.hindiName == null || (data.hindiName is string && data.hindiName.size() <= 200))
+        && (!('category' in data) || data.category == null || (data.category is string && data.category.size() <= 64))
+        && (!('unit' in data) || data.unit == null || (data.unit is string && data.unit.size() <= 32))
+        && (!('rate' in data) || data.rate == null || (data.rate is number && data.rate >= 0))
+        && (!('costPrice' in data) || data.costPrice == null || (data.costPrice is number && data.costPrice >= 0))
+        && (!('stock' in data) || data.stock == null || data.stock is number)
+        && (!('popular' in data) || data.popular == null || data.popular is bool)
+        && (!('minStockAlert' in data) || data.minStockAlert == null || data.minStockAlert is number)
+        && (!('barcode' in data) || data.barcode == null || (data.barcode is string && data.barcode.size() <= 128))
+        && (!('outletId' in data) || data.outletId == null || (data.outletId is string && data.outletId.size() <= 128))
+        && (!('outletName' in data) || data.outletName == null || (data.outletName is string && data.outletName.size() <= 150))
+        && (!('assignedOutletIds' in data) || data.assignedOutletIds == null || data.assignedOutletIds is list)
+        && (!('notes' in data) || data.notes == null || (data.notes is string && data.notes.size() <= 500))
+        && (!('imageUrl' in data) || data.imageUrl == null || (data.imageUrl is string && data.imageUrl.size() <= 1000))
+        && (!('updatedAt' in data) || data.updatedAt == null || (data.updatedAt is string && data.updatedAt.size() <= 64));
+    }
+
+    function isValidTransaction(data) {
+      return data.id is string && data.id.size() <= 128
+        && (!('receiptNumber' in data) || data.receiptNumber == null || (data.receiptNumber is string && data.receiptNumber.size() <= 128))
+        && (!('type' in data) || data.type == null || data.type == 'sale' || data.type == 'expense')
+        && (!('amount' in data) || data.amount == null || (data.amount is number && data.amount >= 0))
+        && (!('paymentMode' in data) || data.paymentMode == null || (data.paymentMode is string && data.paymentMode.size() <= 64))
+        && (!('timestamp' in data) || data.timestamp == null || (data.timestamp is string && data.timestamp.size() <= 64))
+        && (!('customerName' in data) || data.customerName == null || (data.customerName is string && data.customerName.size() <= 200))
+        && (!('customerPhone' in data) || data.customerPhone == null || (data.customerPhone is string && data.customerPhone.size() <= 60))
+        && (!('customerId' in data) || data.customerId == null || (data.customerId is string && data.customerId.size() <= 128))
+        && (!('staffName' in data) || data.staffName == null || (data.staffName is string && data.staffName.size() <= 150))
+        && (!('staffId' in data) || data.staffId == null || (data.staffId is string && data.staffId.size() <= 128))
+        && (!('storeId' in data) || data.storeId == null || (data.storeId is string && data.storeId.size() <= 128))
+        && (!('storeName' in data) || data.storeName == null || (data.storeName is string && data.storeName.size() <= 200))
+        && (!('outletId' in data) || data.outletId == null || (data.outletId is string && data.outletId.size() <= 128))
+        && (!('outletName' in data) || data.outletName == null || (data.outletName is string && data.outletName.size() <= 200))
+        && (!('baseAmount' in data) || data.baseAmount == null || data.baseAmount is number)
+        && (!('taxAmount' in data) || data.taxAmount == null || data.taxAmount is number)
+        && (!('taxRate' in data) || data.taxRate == null || data.taxRate is number)
+        && (!('remarks' in data) || data.remarks == null || (data.remarks is string && data.remarks.size() <= 1000))
+        && (!('notes' in data) || data.notes == null || (data.notes is string && data.notes.size() <= 1000))
+        && (!('items' in data) || data.items == null || data.items is list)
+        && (!('voided' in data) || data.voided == null || data.voided is bool)
+        && (!('voidReason' in data) || data.voidReason == null || (data.voidReason is string && data.voidReason.size() <= 500))
+        && (!('voidedAt' in data) || data.voidedAt == null || (data.voidedAt is string && data.voidedAt.size() <= 64))
+        && (!('voidedBy' in data) || data.voidedBy == null || (data.voidedBy is string && data.voidedBy.size() <= 150));
+    }
+
+    function isValidCustomer(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 200
+        && (!('phone' in data) || data.phone == null || (data.phone is string && data.phone.size() <= 60))
+        && (!('totalDue' in data) || data.totalDue == null || data.totalDue is number)
+        && (!('creditLimit' in data) || data.creditLimit == null || data.creditLimit is number)
+        && (!('lastActive' in data) || data.lastActive == null || (data.lastActive is string && data.lastActive.size() <= 64))
+        && (!('notes' in data) || data.notes == null || (data.notes is string && data.notes.size() <= 1000))
+        && (!('outletId' in data) || data.outletId == null || (data.outletId is string && data.outletId.size() <= 128))
+        && (!('outletName' in data) || data.outletName == null || (data.outletName is string && data.outletName.size() <= 200))
+        && (!('storeId' in data) || data.storeId == null || (data.storeId is string && data.storeId.size() <= 128));
+    }
+
+    function isValidStaff(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 100
+        && (data.role == 'master_admin' || data.role == 'owner' || data.role == 'manager' || data.role == 'cashier')
+        && data.pin is string && data.pin.size() <= 32
+        && data.active is bool;
+    }
+
+    function isValidAuditLog(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.timestamp is string && data.timestamp.size() <= 64
+        && data.action is string && data.action.size() <= 100
+        && data.entity is string && data.entity.size() <= 64
+        && data.details is string && data.details.size() <= 1000
+        && data.performedBy is string && data.performedBy.size() <= 100;
+    }
+
+    function isValidOutlet(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.shopName is string && data.shopName.size() > 0 && data.shopName.size() <= 200
+        && (!('shortcutName' in data) || data.shortcutName == null || (data.shortcutName is string && data.shortcutName.size() <= 64))
+        && (!('tagline' in data) || data.tagline == null || (data.tagline is string && data.tagline.size() <= 300))
+        && (!('phone' in data) || data.phone == null || (data.phone is string && data.phone.size() <= 60))
+        && (!('upiId' in data) || data.upiId == null || (data.upiId is string && data.upiId.size() <= 128))
+        && (!('upiName' in data) || data.upiName == null || (data.upiName is string && data.upiName.size() <= 200))
+        && (!('gstin' in data) || data.gstin == null || (data.gstin is string && data.gstin.size() <= 64))
+        && (!('address' in data) || data.address == null || (data.address is string && data.address.size() <= 500))
+        && (!('defaultTaxRate' in data) || data.defaultTaxRate == null || (data.defaultTaxRate is number && data.defaultTaxRate >= 0))
+        && (!('isDefault' in data) || data.isDefault == null || data.isDefault is bool)
+        && (!('isPrimary' in data) || data.isPrimary == null || data.isPrimary is bool)
+        && (!('createdAt' in data) || data.createdAt == null || (data.createdAt is string && data.createdAt.size() <= 64));
+    }
+
+    function isValidDailySnapshot(data) {
+      return data.id is string && data.id.size() <= 128
+        && data.date is string && data.date.size() <= 32
+        && data.outletId is string && data.outletId.size() <= 128
+        && (!('outletName' in data) || data.outletName == null || (data.outletName is string && data.outletName.size() <= 200))
+        && (!('grossSales' in data) || data.grossSales == null || data.grossSales is number)
+        && (!('expenses' in data) || data.expenses == null || data.expenses is number)
+        && (!('cashSales' in data) || data.cashSales == null || data.cashSales is number)
+        && (!('upiSales' in data) || data.upiSales == null || data.upiSales is number)
+        && (!('udhaarSales' in data) || data.udhaarSales == null || data.udhaarSales is number)
+        && (!('openingCash' in data) || data.openingCash == null || data.openingCash is number)
+        && (!('addedCash' in data) || data.addedCash == null || data.addedCash is number)
+        && (!('cashInHand' in data) || data.cashInHand == null || data.cashInHand is number)
+        && (!('lastResetAt' in data) || data.lastResetAt == null || (data.lastResetAt is string && data.lastResetAt.size() <= 64));
+    }
+
+    // Products Collection
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isValidId(productId) && isValidProduct(incoming());
+      allow delete: if isValidId(productId);
+    }
+
+    // Transactions Collection
+    match /transactions/{transactionId} {
+      allow read: if true;
+      allow create, update: if isValidId(transactionId) && isValidTransaction(incoming());
+      allow delete: if isValidId(transactionId);
+    }
+
+    // Customers (Udhaar Khata) Collection
+    match /customers/{customerId} {
+      allow read: if true;
+      allow create, update: if isValidId(customerId) && isValidCustomer(incoming());
+      allow delete: if isValidId(customerId);
+    }
+
+    // Staff Accounts Collection
+    match /staff/{staffId} {
+      allow read: if true;
+      allow create, update: if isValidId(staffId) && isValidStaff(incoming());
+      allow delete: if isValidId(staffId);
+    }
+
+    // Audit Logs Collection
+    match /auditLogs/{auditLogId} {
+      allow read: if true;
+      allow create: if isValidId(auditLogId) && isValidAuditLog(incoming());
+      allow update, delete: if false; // Immutable audit log
+    }
+
+    // Outlets Collection (Store branches accessible online by server admin)
+    match /outlets/{outletId} {
+      allow read: if true;
+      allow create, update: if isValidId(outletId) && isValidOutlet(incoming());
+      allow delete: if isValidId(outletId);
+    }
+
+    // Daily Snapshots Collection (Store branch end-of-day register archives)
+    match /dailySnapshots/{snapshotId} {
+      allow read: if true;
+      allow create, update: if isValidId(snapshotId) && isValidDailySnapshot(incoming());
+      allow delete: if false;
+    }
+
+    // Healthcheck Test Document
+    match /test/{docId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Global Safety Net (default deny for all unmatched collections)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

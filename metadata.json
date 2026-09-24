@@ -1,0 +1,11 @@
+{
+  "name": "51 Nayab kirana calculator ",
+  "description": "Smart business calculator with integrated Kirana and spice store POS inventory, web item search, UPI QR billing, and Udhaar ledger.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

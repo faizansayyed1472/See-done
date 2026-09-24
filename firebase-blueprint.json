@@ -1,0 +1,188 @@
+{
+  "entities": {
+    "product": {
+      "title": "Product",
+      "description": "Store inventory SKU item with prices, units, and stock levels",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 200 },
+        "hindiName": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 64 },
+        "unit": { "type": "string", "maxLength": 32 },
+        "rate": { "type": "number" },
+        "costPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "popular": { "type": "boolean" },
+        "minStockAlert": { "type": "number" },
+        "barcode": { "type": "string", "maxLength": 128 },
+        "outletId": { "type": "string", "maxLength": 128 },
+        "outletName": { "type": "string", "maxLength": 150 },
+        "assignedOutletIds": { "type": "array" },
+        "updatedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "name", "category", "unit", "rate"]
+    },
+    "transaction": {
+      "title": "Transaction",
+      "description": "Sales invoice or expense transaction record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "receiptNumber": { "type": "string", "maxLength": 64 },
+        "type": { "type": "string", "enum": ["sale", "expense"] },
+        "amount": { "type": "number" },
+        "paymentMode": { "type": "string", "enum": ["cash", "online_upi", "credit_udhaar"] },
+        "customerName": { "type": "string", "maxLength": 150 },
+        "customerPhone": { "type": "string", "maxLength": 40 },
+        "customerId": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "string", "maxLength": 64 },
+        "staffName": { "type": "string", "maxLength": 100 },
+        "staffId": { "type": "string", "maxLength": 128 },
+        "storeId": { "type": "string", "maxLength": 128 },
+        "storeName": { "type": "string", "maxLength": 150 },
+        "outletId": { "type": "string", "maxLength": 128 },
+        "outletName": { "type": "string", "maxLength": 150 },
+        "baseAmount": { "type": "number" },
+        "taxAmount": { "type": "number" },
+        "taxRate": { "type": "number" },
+        "remarks": { "type": "string", "maxLength": 500 },
+        "notes": { "type": "string", "maxLength": 500 },
+        "items": { "type": "array" },
+        "voided": { "type": "boolean" },
+        "voidReason": { "type": "string", "maxLength": 300 }
+      },
+      "required": ["id", "receiptNumber", "type", "amount", "paymentMode", "timestamp"]
+    },
+    "customer": {
+      "title": "Customer",
+      "description": "Udhaar khata customer balance and details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "totalDue": { "type": "number" },
+        "creditLimit": { "type": "number" },
+        "lastActive": { "type": "string", "maxLength": 64 },
+        "notes": { "type": "string", "maxLength": 500 },
+        "outletId": { "type": "string", "maxLength": 128 },
+        "outletName": { "type": "string", "maxLength": 150 },
+        "storeId": { "type": "string", "maxLength": 128 }
+      },
+      "required": ["id", "name", "phone", "totalDue"]
+    },
+    "staff": {
+      "title": "Staff",
+      "description": "Staff account with role and authentication PIN",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["master_admin", "owner", "manager", "cashier"] },
+        "pin": { "type": "string", "maxLength": 32 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "name", "role", "pin", "active"]
+    },
+    "auditLog": {
+      "title": "AuditLog",
+      "description": "System and Master Admin action audit trail",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "timestamp": { "type": "string", "maxLength": 64 },
+        "action": { "type": "string", "maxLength": 100 },
+        "entity": { "type": "string", "maxLength": 64 },
+        "details": { "type": "string", "maxLength": 1000 },
+        "performedBy": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "timestamp", "action", "entity", "details", "performedBy"]
+    },
+    "outlet": {
+      "title": "Outlet",
+      "description": "Store branch or outlet location profile with contact, UPI, and tax configuration accessible online",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "shopName": { "type": "string", "maxLength": 200 },
+        "shortcutName": { "type": "string", "maxLength": 64 },
+        "tagline": { "type": "string", "maxLength": 300 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "upiId": { "type": "string", "maxLength": 100 },
+        "upiName": { "type": "string", "maxLength": 150 },
+        "gstin": { "type": "string", "maxLength": 50 },
+        "address": { "type": "string", "maxLength": 500 },
+        "defaultTaxRate": { "type": "number" },
+        "createdAt": { "type": "string", "maxLength": 64 },
+        "isDefault": { "type": "boolean" },
+        "isPrimary": { "type": "boolean" }
+      },
+      "required": ["id", "shopName", "phone", "address"]
+    },
+    "testHealth": {
+      "title": "TestHealth",
+      "description": "Ping document for connectivity validation",
+      "type": "object",
+      "properties": {
+        "status": { "type": "string" }
+      }
+    },
+    "dailySnapshot": {
+      "title": "DailySnapshot",
+      "description": "Archived end-of-day register snapshot per outlet",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "date": { "type": "string", "maxLength": 32 },
+        "outletId": { "type": "string", "maxLength": 128 },
+        "outletName": { "type": "string", "maxLength": 200 },
+        "grossSales": { "type": "number" },
+        "expenses": { "type": "number" },
+        "cashSales": { "type": "number" },
+        "upiSales": { "type": "number" },
+        "udhaarSales": { "type": "number" },
+        "openingCash": { "type": "number" },
+        "addedCash": { "type": "number" },
+        "cashInHand": { "type": "number" },
+        "lastResetAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "date", "outletId"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/product" },
+      "description": "Collection of store product inventory records"
+    },
+    "/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/transaction" },
+      "description": "Collection of receipts and invoices"
+    },
+    "/customers/{customerId}": {
+      "schema": { "$ref": "#/entities/customer" },
+      "description": "Collection of Udhaar Khata ledger accounts"
+    },
+    "/staff/{staffId}": {
+      "schema": { "$ref": "#/entities/staff" },
+      "description": "Collection of staff user profiles and credentials"
+    },
+    "/auditLogs/{auditLogId}": {
+      "schema": { "$ref": "#/entities/auditLog" },
+      "description": "Master admin and terminal event audit logs"
+    },
+    "/outlets/{outletId}": {
+      "schema": { "$ref": "#/entities/outlet" },
+      "description": "Collection of retail outlets and branch locations accessible online by server admin"
+    },
+    "/dailySnapshots/{snapshotId}": {
+      "schema": { "$ref": "#/entities/dailySnapshot" },
+      "description": "Daily register counter archives per store branch"
+    },
+    "/test/{testId}": {
+      "schema": { "$ref": "#/entities/testHealth" },
+      "description": "Connectivity healthcheck probe endpoint"
+    }
+  }
+}

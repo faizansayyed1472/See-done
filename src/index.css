@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Hide scrollbar for Chrome, Safari, Opera, Edge, Firefox */
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Subtle sleek scrollbar for horizontal bars */
+.scroll-bar-subtle {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+.scroll-bar-subtle::-webkit-scrollbar {
+  height: 4px;
+}
+.scroll-bar-subtle::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-bar-subtle::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 9999px;
+}
+.scroll-bar-subtle:hover::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* Leaflet Custom Overrides */
+.leaflet-popup-content-wrapper {
+  border-radius: 1rem !important;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.25) !important;
+  padding: 4px !important;
+  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: none !important;
+}
+
+.custom-place-pin,
+.custom-click-icon,
+.user-loc-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
